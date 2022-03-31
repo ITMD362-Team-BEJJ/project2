@@ -26,3 +26,4 @@
 ## Put name below to agree to terms:
 
     Joshua Prila
+    Bradley Estacio
