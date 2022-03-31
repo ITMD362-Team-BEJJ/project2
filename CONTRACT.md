@@ -23,6 +23,6 @@
 
     - Breaching any terms set out above will begin by reaching out to the individual, then reaching out to the professor, then if contact is not establish, team members will vote to proceed with expulsion from the team (with class policy regulations and processes followed)
 
-## Names:
+## Put name below to agree to terms:
 
     Joshua Prila
