@@ -3,7 +3,7 @@
 ## COMMUNICATION:
 
     - Team members agree to contact at least once a week.
-    - If contacted via discord group DM, thorough responses must come within 48 hours, and brief responses within 24 hours. 
+    - If contacted via discord group DM, thorough responses must come within 48 hours, and brief responses within 24 hours.
 
 ## CONTRIBUTIONS:
 
@@ -19,7 +19,7 @@
     - Minor code reviews should have at least 2 approvals within 24 hours. Merge is acceptable after that
     - All team members are expected to be active in code reviews
 
-## PENALTIES: 
+## PENALTIES:
 
     - Breaching any terms set out above will begin by reaching out to the individual, then reaching out to the professor, then if contact is not establish, team members will vote to proceed with expulsion from the team (with class policy regulations and processes followed)
 
@@ -27,3 +27,4 @@
 
     Joshua Prila
     Bradley Estacio
+    Jovany Melchor
