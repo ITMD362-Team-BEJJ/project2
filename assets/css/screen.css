@@ -27,7 +27,7 @@ section {
 }
 
 header {
-  font-family: Merriweather, serif;
+  /* font-family: Merriweather, serif; */
   font-size: 1.125em; /* 18px / 16px = 1.125em */
   font-weight: bold;
   line-height: 1.44em; /* 23.04px / 16px = 2.25em */
@@ -150,7 +150,8 @@ fieldset[aria-hidden="true"] {
 }
 
 #shop-name {
-  width: auto;
+  width: min-content;
+  flex-direction: initial;
 }
 
 #nav-buttons {
@@ -259,4 +260,87 @@ fieldset[aria-hidden="true"] {
     grid-template-columns: [shop-name] auto [home-nav cart-and-payment-nav billing-nav shipping-nav] auto;
     column-gap: 5em;
   }
+}
+
+/* ENDRIS IDEA OF THE DESIGN STARTS HERE */
+
+#hero {
+background-image: url(https://cdn.pixabay.com/photo/2017/01/24/03/53/plant-2004483_960_720.jpg);
+height: 75vh;
+width: 100%;
+background-position: top 45% right 0;
+background-size: cover;
+padding: 0 100px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+}
+#hero h1 {
+    color: #76A35E;
+    font-weight: 700;
+}
+#hero button{
+    background-image: url("/assets/images/button.png");
+    background-color: transparent;
+    color: green;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#product1{
+    text-align: center;
+}
+
+#product1 .product-container{
+    display: flex!important;
+    justify-content: space-between;
+}
+
+#product1 .products {
+    width: 20%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 15px 15px 20px rgba(179, 169, 91, 0.1);
+    margin: 15px 0px;
+    transition: 0.2s ease;
+    position: relative;
+}
+#product1 .products:hover {
+    box-shadow: 20px 20px 30px rgba(163, 127, 27, 0.2);
+}
+#product1 .products img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product1 .product-desc {
+    text-align: start;
+    padding: 10px 2;
+}
+#product1 .product-desc h5{
+    padding-top: 7px;
+    font-size: 17px;
+}
+#product1 .product-desc h4{
+    padding-top: 7px;
+    color: #76A35E;
+}
+#product1 .products .cart{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 60px;
+    background-color: #DDEAD7;
+    color: #76A35E;
+    position:absolute;
+    bottom: 20px;
+    right: 10px;
+
 }
