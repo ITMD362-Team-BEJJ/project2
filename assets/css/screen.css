@@ -196,6 +196,7 @@ fieldset[aria-hidden="true"] {
 
 /* 800px / 16px = 50em */
 @media screen and (min-width: 50em) {
+
   main {
     display: grid;
     grid-template-rows: auto auto;
@@ -263,12 +264,40 @@ fieldset[aria-hidden="true"] {
 }
 
 /* ENDRIS IDEA OF THE DESIGN STARTS HERE */
+#homepage {
+  background-image:url(../images/homepage1.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+  font-family: 'Playfair Display';
+	color: #fffdf0;
+}
+
+#homepage button {
+  background-color: #ced1cc5d;
+  border: 1px solid #ffffff;
+  line-height: 24px;
+  padding: 16px 20px;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#homepage a{
+  color: white;
+}
 
 #hero {
-background-image: url(https://cdn.pixabay.com/photo/2017/01/24/03/53/plant-2004483_960_720.jpg);
-height: 75vh;
-width: 100%;
-background-position: top 45% right 0;
+background-image: url(../images/hero.jpg);
+height: 77vh;
+max-width: 100%;
+background-position: top 70% right 0;
 background-size: cover;
 padding: 0 100px;
 display: flex;
@@ -291,16 +320,18 @@ justify-content: center;
     font-weight: 700;
 }
 
-#product1{
+#product-section{
     text-align: center;
 }
 
-#product1 .product-container{
-    display: flex!important;
-    justify-content: space-between;
+#product-section .product-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 50px;
 }
 
-#product1 .products {
+#product-section .products {
     width: 20%;
     min-width: 250px;
     padding: 10px 12px;
@@ -312,27 +343,27 @@ justify-content: center;
     transition: 0.2s ease;
     position: relative;
 }
-#product1 .products:hover {
+#product-section .products:hover {
     box-shadow: 20px 20px 30px rgba(163, 127, 27, 0.2);
 }
-#product1 .products img {
+#product-section .products img {
     width: 100%;
     border-radius: 20px;
 }
 
-#product1 .product-desc {
+#product-section .product-desc {
     text-align: start;
     padding: 10px 2;
 }
-#product1 .product-desc h5{
+#product-section .product-desc h5{
     padding-top: 7px;
     font-size: 17px;
 }
-#product1 .product-desc h4{
+#product-section .product-desc h4{
     padding-top: 7px;
     color: #76A35E;
 }
-#product1 .products .cart{
+#product-section .products .cart{
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -342,5 +373,30 @@ justify-content: center;
     position:absolute;
     bottom: 20px;
     right: 10px;
+}
+#product-section .products .cart:hover{
+  background-color: #76A35E;
+  color: #DDEAD7;
+}
 
+footer {
+  background-color: #76A35E;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 80px;
+}
+footer {
+  padding-top: 30px;
+}
+
+footer menu {
+  text-align: center;
+}
+footer .menu a{
+  color: #DDEAD7;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+footer .copyright h5{
+  color: #DDEAD7;
 }
