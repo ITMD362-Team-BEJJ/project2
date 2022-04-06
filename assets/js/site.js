@@ -13,7 +13,10 @@ html.classList.add('js');
 
 // Logic for Store
 if(html.id === 'store') {
-  
+  var addToCartButton = document.querySelectorAll('button[name="addCart"]');
+  addToCartButton.forEach(function(button)  {
+    button.addEventListener('click', handleCartAddition);
+  });
 }
 
 // Logic for payment form
@@ -62,6 +65,14 @@ if(html.id === 'shipping') {
 }
 
 /* Callback Functions */
+
+function handleCartAddition(event) {
+  var button = event.target;
+  var item = button.parentElement;
+  var name = item.getElementsByClassName('plant-name')[0].innerText;
+  var price = item.getElementsByClassName('plant-price')[0].innerText;
+  console.log(name, price);
+}
 
 function handleFormInputActivity(event) {
   var inputElements = ['INPUT', 'SELECT'];
