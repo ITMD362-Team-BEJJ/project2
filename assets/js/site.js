@@ -11,6 +11,11 @@ var newAddressCheckbox;
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
 html.classList.add('js');
 
+// Logic for Store
+if(html.id === 'store') {
+  
+}
+
 // Logic for payment form
 if(html.id === 'payment') {
   formPayment = document.querySelector('form[name="payment"]');
