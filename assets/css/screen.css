@@ -280,7 +280,7 @@ justify-content: center;
     color: #76A35E;
     font-weight: 700;
 }
-#hero button{
+#hero a{
     background-image: url("/assets/images/button.png");
     background-color: transparent;
     color: green;
