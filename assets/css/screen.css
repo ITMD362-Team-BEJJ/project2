@@ -504,6 +504,25 @@ fieldset[aria-hidden="true"] {
   background-color: #864D7C;
 }
 
+.top-button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  font-family: Rubik, sans-serif;
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 4px;
+  color: initial;
+  background-color: #A882A1;
+}
+
+.top-button:hover {
+  background-color: #97668E
+}
+
 #shop-name {
   width: min-content;
   flex-direction: initial;
@@ -617,7 +636,7 @@ fieldset[aria-hidden="true"] {
   }
 }
 /* ENDRIS IDEA OF THE DESIGN STARTS HERE */
-/* #homepage {
+/*#homepage {
   background-image:url(../images/homepage1.jpg);
   background-position: center;
   background-size: cover;
@@ -641,10 +660,11 @@ fieldset[aria-hidden="true"] {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
+}*/
+
 #homepage a{
   color: white;
-} */
+}
 
 #home {
 background-image: url(../images/hero.jpg);
@@ -750,6 +770,6 @@ footer .menu a{
   padding-left: 20px;
   padding-right: 20px;
 }
-footer .copyright h5{
+footer .copyright h5 {
   color: #DDEAD7;
 }
