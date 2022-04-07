@@ -636,7 +636,7 @@ fieldset[aria-hidden="true"] {
   }
 }
 /* ENDRIS IDEA OF THE DESIGN STARTS HERE */
-/* #homepage {
+/*#homepage {
   background-image:url(../images/homepage1.jpg);
   background-position: center;
   background-size: cover;
@@ -660,10 +660,11 @@ fieldset[aria-hidden="true"] {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
+}*/
+
 #homepage a{
   color: white;
-} */
+}
 
 #home {
 background-image: url(../images/hero.jpg);
@@ -769,6 +770,6 @@ footer .menu a{
   padding-left: 20px;
   padding-right: 20px;
 }
-footer .copyright h5{
+footer .copyright h5 {
   color: #DDEAD7;
 }
