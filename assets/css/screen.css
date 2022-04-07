@@ -636,7 +636,7 @@ fieldset[aria-hidden="true"] {
   }
 }
 /* ENDRIS IDEA OF THE DESIGN STARTS HERE */
-#homepage {
+/* #homepage {
   background-image:url(../images/homepage1.jpg);
   background-position: center;
   background-size: cover;
@@ -663,13 +663,13 @@ fieldset[aria-hidden="true"] {
 }
 #homepage a{
   color: white;
-}
+} */
 
-#hero {
+#home {
 background-image: url(../images/hero.jpg);
-height: 77vh;
-max-width: 100%;
-background-position: top 70% right 0;
+height: 75vh;
+width: 100%;
+background-position: top 45% right 0;
 background-size: cover;
 padding: 0 100px;
 display: flex;
@@ -696,7 +696,7 @@ justify-content: center;
     text-align: center;
 }
 
-#product-section .product-container {
+#main .product-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
