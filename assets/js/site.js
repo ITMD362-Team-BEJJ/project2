@@ -268,6 +268,30 @@ function restoreFormDataFromLocalStorage(formName) {
   }
 }
 
+function generateCartFromLocalStorage(formName) {
+  if (formName=="cart"){
+    var jsObject = readJsonFromLocalStorage(formName);
+    var formValues = Object.entries(jsObject);
+    var formElements;
+    var i;
+
+    if (formValues.length === 0) {
+      return; // nothing to restore
+    }
+    formElements = document.forms[formName].elements;
+    for (i = 0; i < formValues.length; i++) {
+      console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
+      formElements[formValues[i][0]].value = formValues[i][1];
+      //var name = item.getElementsByClassName('plant-name')[0].innerText;
+      //var price = item.getElementsByClassName('plant-price')[0].innerText;
+      //console.log(name, price);
+    }
+  }
+  else {
+    return;
+  }
+}
+
 /* Utility Functions */
 
 function capitalizeFirstLetter(string) {
