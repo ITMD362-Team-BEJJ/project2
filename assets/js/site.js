@@ -269,7 +269,7 @@ function restoreFormDataFromLocalStorage(formName) {
   }
 }
 
-
+/*
 function updateCart() {
   //var cartItemContainer = document.getElementsByClassName(items)[0]
   var cartItemContainer = document.getElementById('cartItems')
@@ -278,37 +278,13 @@ function updateCart() {
   for (var i = 0; i < cartRows.length; i++){
     var cartRow = cartRows[i]
     var name = cartRow.getElementsByClassName('name')
-    var priceElem = cartRow.getElementsByClassName('price')[0]
+    var priceElem = cartRow.getElementsByClassName('price')[0]       // Does not exist in payment page
     var quantityElem = cartRow.getElementsByClassName('quantity')[0] // Does not exist in payment page
     var price = parseFloat(priceElem.innerText.replace('$', ''))
     var quantity = quantityElem.value
     total += priceElem * quantity
   }
   document.getElementById('cart-total')[0].innerText = '$' + total
-}
-/*
-function generateCartFromLocalStorage(formName) {
-  if (formName=="cart"){
-    var jsObject = readJsonFromLocalStorage(formName);
-    var formValues = Object.entries(jsObject);
-    var formElements;
-    var i;
-
-    if (formValues.length === 0) {
-      return; // nothing to restore
-    }
-    formElements = document.forms[formName].elements;
-    for (i = 0; i < formValues.length; i++) {
-      console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
-      formElements[formValues[i][0]].value = formValues[i][1];
-      //var name = item.getElementsByClassName('plant-name')[0].innerText;
-      //var price = item.getElementsByClassName('plant-price')[0].innerText;
-      //console.log(name, price);
-    }
-  }
-  else {
-    return;
-  }
 }
 */
 
