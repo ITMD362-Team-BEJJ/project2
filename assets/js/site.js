@@ -72,6 +72,7 @@ function handleCartAddition(event) {
   var name = item.getElementsByClassName('plant-name')[0].innerText;
   var price = item.getElementsByClassName('plant-price')[0].innerText;
   console.log(name, price);
+  //generateCartFromLocalStorage();
 }
 
 function handleFormInputActivity(event) {
@@ -268,6 +269,24 @@ function restoreFormDataFromLocalStorage(formName) {
   }
 }
 
+
+function updateCart() {
+  //var cartItemContainer = document.getElementsByClassName(items)[0]
+  var cartItemContainer = document.getElementById('cartItems')
+  var cartRows = document.getElementById('cartRow')
+  var total = 0;
+  for (var i = 0; i < cartRows.length; i++){
+    var cartRow = cartRows[i]
+    var name = cartRow.getElementsByClassName('name')
+    var priceElem = cartRow.getElementsByClassName('price')[0]
+    var quantityElem = cartRow.getElementsByClassName('quantity')[0] // Does not exist in payment page
+    var price = parseFloat(priceElem.innerText.replace('$', ''))
+    var quantity = quantityElem.value
+    total += priceElem * quantity
+  }
+  document.getElementById('cart-total')[0].innerText = '$' + total
+}
+/*
 function generateCartFromLocalStorage(formName) {
   if (formName=="cart"){
     var jsObject = readJsonFromLocalStorage(formName);
@@ -291,6 +310,7 @@ function generateCartFromLocalStorage(formName) {
     return;
   }
 }
+*/
 
 /* Utility Functions */
 
