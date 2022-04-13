@@ -269,7 +269,7 @@ function restoreFormDataFromLocalStorage(formName) {
   }
 }
 
-/*
+
 function updateCart() {
   //var cartItemContainer = document.getElementsByClassName(items)[0]
   var cartItemContainer = document.getElementById('cartItems')
@@ -278,15 +278,15 @@ function updateCart() {
   for (var i = 0; i < cartRows.length; i++){
     var cartRow = cartRows[i]
     var name = cartRow.getElementsByClassName('name')
-    var priceElem = cartRow.getElementsByClassName('price')[0]       // Does not exist in payment page
-    var quantityElem = cartRow.getElementsByClassName('quantity')[0] // Does not exist in payment page
+    var priceElem = cartRow.getElementsByClassName('price')[0]       
+    var quantityElem = cartRow.getElementsByClassName('quantity')[0] 
     var price = parseFloat(priceElem.innerText.replace('$', ''))
     var quantity = quantityElem.value
     total += priceElem * quantity
   }
   document.getElementById('cart-total')[0].innerText = '$' + total
 }
-*/
+
 
 /* Utility Functions */
 
