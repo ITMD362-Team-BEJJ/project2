@@ -193,7 +193,10 @@ fieldset[aria-hidden="true"] {
     grid-area: shipping-nav;
   }
 
-  .price {
+  .price, .name, .quantity {
+    display: inline-grid;
+  }
+  .cart-total {
     display: inline-grid;
   }
 }
@@ -544,7 +547,10 @@ fieldset[aria-hidden="true"] {
     grid-area: shipping-nav;
   }
 
-  .price {
+  .price, .name, .quantity {
+    display: inline-grid;
+  }
+  .cart-total {
     display: inline-grid;
   }
 }
