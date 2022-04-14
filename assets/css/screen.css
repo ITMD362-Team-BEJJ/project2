@@ -246,8 +246,7 @@ footer .copyright h5 {
 }
 
 #shop-name {
-  width: min-content;
-  flex-direction: initial;
+  width: auto;
 }
 
 #shop .products {
@@ -292,7 +291,7 @@ footer .copyright h5 {
   header {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: [shop-name] auto [home-nav store-nav cart-and-payment-nav billing-nav shipping-nav] 11.5em;
+    grid-template-columns: [shop-name] auto [home-nav store-nav cart-nav] auto 10em;
     column-gap: 5em;
   }
 
@@ -321,16 +320,8 @@ footer .copyright h5 {
     grid-area: store-nav;
   }
 
-  #cart-and-payment-nav {
-    grid-area: cart-and-payment-nav;
-  }
-
-  #billing-nav {
-    grid-area: billing-nav;
-  }
-
-  #shipping {
-    grid-area: shipping-nav;
+  #cart-nav {
+    grid-area: cart-nav;
   }
 }
 
@@ -360,19 +351,7 @@ footer .copyright h5 {
     grid-column: span 1;
   }
 
-  #cart-and-payment-nav {
-    display: inline-grid;
-    grid-row: span 1;
-    grid-column: span 1;
-  }
-
-  #billing-nav {
-    display: inline-grid;
-    grid-row: span 1;
-    grid-column: span 1;
-  }
-
-  #shipping-nav {
+  #cart-nav {
     display: inline-grid;
     grid-row: span 1;
     grid-column: span 1;
