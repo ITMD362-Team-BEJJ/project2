@@ -109,6 +109,28 @@ fieldset[aria-hidden="true"] {
   display: none;
 }
 
+footer {
+  background-color: #76A35E;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 80px;
+}
+footer {
+  padding-top: 30px;
+}
+
+footer menu {
+  text-align: center;
+}
+footer .menu a {
+  color: #DDEAD7;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+footer .copyright h5 {
+  color: #DDEAD7;
+}
+
 .line {
   display: block;
   border-bottom: 0.0625em solid #9E9E9E; /* 1px / 16px = 0.0625em */
@@ -383,26 +405,4 @@ fieldset[aria-hidden="true"] {
     grid-template-columns: [shop-name] auto [home-nav cart-and-payment-nav billing-nav shipping-nav] auto;
     column-gap: 5em;
   }
-}
-
-footer {
-  background-color: #76A35E;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 80px;
-}
-footer {
-  padding-top: 30px;
-}
-
-footer menu {
-  text-align: center;
-}
-footer .menu a {
-  color: #DDEAD7;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-footer .copyright h5 {
-  color: #DDEAD7;
 }
