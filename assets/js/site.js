@@ -278,8 +278,8 @@ function updateCart() {
   for (var i = 0; i < cartRows.length; i++){
     var cartRow = cartRows[i]
     var name = cartRow.getElementsByClassName('name')
-    var priceElem = cartRow.getElementsByClassName('price')[0]       
-    var quantityElem = cartRow.getElementsByClassName('quantity')[0] 
+    var priceElem = cartRow.getElementsByClassName('price')[0]
+    var quantityElem = cartRow.getElementsByClassName('quantity')[0]
     var price = parseFloat(priceElem.innerText.replace('$', ''))
     var quantity = quantityElem.value
     total += priceElem * quantity
