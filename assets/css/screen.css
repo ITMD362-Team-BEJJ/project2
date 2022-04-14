@@ -115,6 +115,7 @@ footer {
   justify-content: space-between;
   padding: 10px 80px;
 }
+
 footer {
   padding-top: 30px;
 }
@@ -270,16 +271,16 @@ footer .copyright h5 {
 }
 
 #shop .product-desc {
-    text-align: start;
-    padding: 10px 2;
+  text-align: start;
+  padding: 10px 2;
 }
 #shop h5{
-    padding-top: 7px;
-    font-size: 17px;
+  padding-top: 7px;
+  font-size: 17px;
 }
 #shop h4{
-    padding-top: 7px;
-    color: #76A35E;
+  padding-top: 7px;
+  color: #76A35E;
 }
 
 #nav-buttons {
@@ -296,10 +297,10 @@ footer .copyright h5 {
   }
 
   .product-container{
-      display: flex !important;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 50px;
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px;
   }
 
   .price {
