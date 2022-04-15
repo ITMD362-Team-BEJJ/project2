@@ -284,7 +284,7 @@ function updateCart() {
     var quantity = quantityElem.value
     total += priceElem * quantity
   }
-  document.getElementById('cart-total')[0].innerText = '$' + total
+  document.getElementsByClassName('cart-total')[0].innerText = '$' + total
 }
 
 
