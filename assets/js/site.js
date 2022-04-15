@@ -73,6 +73,13 @@ function handleCartAddition(event) {
   var price = item.getElementsByClassName('plant-price')[0].innerText;
   console.log(name, price);
   //generateCartFromLocalStorage();
+  
+  //var targetElement = event.target;
+  event.preventDefault(); // STOP the default browser behavior
+  writeFormDataToLocalStorage(button.name); // STORE all the form data
+  //window.location.href = button.action; // PROCEED to the URL referenced by the form action
+
+
 }
 
 function handleFormInputActivity(event) {
