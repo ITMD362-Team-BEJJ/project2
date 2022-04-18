@@ -70,14 +70,18 @@ function handleCartAddition(event) {
   // Name, Price, Quantity
   var button = event.target;
   var item = button.parentElement;
-  var name = item.getElementsByClassName('plant-name')[0].innerText;
-  var price = item.getElementsByClassName('plant-price')[0].innerText;
+  var name = button.getElementsByClassName('plant-name')[0].innerText;
+  var price = button.getElementsByClassName('plant-price')[0].innerText;
+  var quantity = button.getElementByClassName('plant-quantity')[0].innerText;
   console.log(name, price);
   //generateCartFromLocalStorage();
 
   //var targetElement = event.target;
   event.preventDefault(); // STOP the default browser behavior
-  writeFormDataToLocalStorage(button.name); // STORE all the form data
+  // STORE all the form data
+  writeFormDataToLocalStorage(button.name);
+  writeFormDataToLocalStorage(button.price);
+  writeFormDataToLocalStorage(button.quantity);
   //window.location.href = button.action; // PROCEED to the URL referenced by the form action
 
 
