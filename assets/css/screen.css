@@ -279,7 +279,7 @@ footer .copyright h5 {
   header {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: [shop-name] auto [home-nav store-nav cart-nav] auto 10em;
+    grid-template-columns: [shop-name] auto [home-nav store-nav cart-nav] auto;
     column-gap: 5em;
   }
 
@@ -370,7 +370,7 @@ footer .copyright h5 {
   header {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: [shop-name] auto [home-nav cart-and-payment-nav billing-nav shipping-nav] auto;
+    grid-template-columns: [shop-name] auto [home-nav store-nav cart-nav] auto 5em;
     column-gap: 5em;
   }
 }
