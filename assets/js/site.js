@@ -67,13 +67,14 @@ if(html.id === 'shipping') {
 /* Callback Functions */
 
 function handleCartAddition(event) {
+  // Name, Price, Quantity
   var button = event.target;
   var item = button.parentElement;
   var name = item.getElementsByClassName('plant-name')[0].innerText;
   var price = item.getElementsByClassName('plant-price')[0].innerText;
   console.log(name, price);
   //generateCartFromLocalStorage();
-  
+
   //var targetElement = event.target;
   event.preventDefault(); // STOP the default browser behavior
   writeFormDataToLocalStorage(button.name); // STORE all the form data
