@@ -152,7 +152,7 @@ footer .copyright h5 {
   background-color: #76A35E;
 }
 
-.back-button {
+.custom-button {
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
@@ -168,7 +168,7 @@ footer .copyright h5 {
   background-color: #A882A1;
 }
 
-.back-button:hover {
+.custom-button:hover {
   background-color: #864D7C;
 }
 
@@ -318,7 +318,7 @@ footer .copyright h5 {
   main {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: [back-button-start form-start] auto [back-button-end form-end] auto [summary-start];
+    grid-template-columns: [custom-button-start form-start] auto [custom-button-end form-end] auto [summary-start];
   }
 
   #nav-buttons {
@@ -357,9 +357,9 @@ footer .copyright h5 {
     grid-area: form;
   }
 
-  #back-button {
+  #custom-button {
     display: inline-grid;
-    grid-area: back-button;
+    grid-area: custom-button;
     grid-row: auto;
     width: 9.63125em; /* 154.1px / 16px = 9.63125em */
   }
