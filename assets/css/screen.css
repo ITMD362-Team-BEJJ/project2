@@ -193,15 +193,13 @@ footer .copyright h5 {
 
 #home {
   background-image: url(../images/hero.jpg);
-  height: 80vh;
+  height: 85vh;
   width: auto;
   background-position: top 45% right 0;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
+  background-repeat: no-repeat;
   align-items: flex-start;
-  justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #home-section {
@@ -230,16 +228,7 @@ footer .copyright h5 {
   color: #76A35E;
   font-weight: 700;
 }
-#home-section button {
-  background-image: url("/assets/images/button.png");
-  background-color: transparent;
-  color: green;
-  border: 0;
-  padding: 14px 80px 14px 65px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  font-weight: 700;
-}
+
 
 #shop {
     text-align: center;
