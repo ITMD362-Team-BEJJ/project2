@@ -13,6 +13,7 @@ html.classList.add('js');
 
 // Logic for Store
 if(html.id === 'store') {
+  //localStorage.clear();
   var addToCartButton = document.querySelectorAll('button[name="addCart"]');
   addToCartButton.forEach(function(button)  {
     button.addEventListener('click', handleCartAddition);
@@ -21,6 +22,7 @@ if(html.id === 'store') {
 
 // Logic for payment form
 if(html.id === 'payment') {
+  updateCart();
   formPayment = document.querySelector('form[name="payment"]');
   restoreFormDataFromLocalStorage(formPayment.name);
   formPayment.addEventListener('input', debounce(handleFormInputActivity, 850));
@@ -29,11 +31,12 @@ if(html.id === 'payment') {
 }
 // Logic for cart
 if(html.id === 'cart') {
-  updateCart(cartItems);
+  updateCart();
 }
 
 // Logic for billing form
 if(html.id === 'billing') {
+  updateCart();
   formBilling = document.querySelector('form[name="billing"]');
   restoreFormDataFromLocalStorage(formBilling.name);
   formBilling.addEventListener('input', debounce(handleFormInputActivity, 850));
@@ -43,6 +46,7 @@ if(html.id === 'billing') {
 
 // Logic for shipping form
 if(html.id === 'shipping') {
+  updateCart();
   formShipping = document.querySelector('form[name="shipping"]');
   restoreFormDataFromLocalStorage(formShipping.name);
   formShipping.addEventListener('input', debounce(handleFormInputActivity, 850));
@@ -102,6 +106,7 @@ function handleCartAddition(event) {
   var jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
   var jscart = [];
   jscart.push(jsObj);
+  //appendToStorage("jscart", JSON.stringify(jscart));
   localStorage.setItem("jscart", JSON.stringify(jscart));
   var cartFinal = JSON.parse(localStorage.getItem("jscart"))
   console.log(cartFinal);
@@ -279,6 +284,16 @@ function readJsonFromLocalStorage(keyName) {
 
 function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
+}
+
+function appendToStorage(name, data){
+    var old = localStorage.getItem(name);
+    if(old === null) {
+      old = "";
+    }
+    else {
+    localStorage.setItem(name, old + data);
+    }
 }
 
 // function destroyFormDataInLocalStorage(formName) {
