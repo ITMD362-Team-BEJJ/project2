@@ -193,7 +193,10 @@ fieldset[aria-hidden="true"] {
     grid-area: shipping-nav;
   }
 
-  .price {
+  .price, .name, .quantity {
+    display: inline-grid;
+  }
+  .cart-total {
     display: inline-grid;
   }
 }
@@ -504,25 +507,6 @@ fieldset[aria-hidden="true"] {
   background-color: #864D7C;
 }
 
-.top-button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-
-  font-family: Rubik, sans-serif;
-  display: block;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 4px;
-  color: initial;
-  background-color: #A882A1;
-}
-
-.top-button:hover {
-  background-color: #97668E
-}
-
 #shop-name {
   width: min-content;
   flex-direction: initial;
@@ -563,7 +547,10 @@ fieldset[aria-hidden="true"] {
     grid-area: shipping-nav;
   }
 
-  .price {
+  .price, .name, .quantity {
+    display: inline-grid;
+  }
+  .cart-total {
     display: inline-grid;
   }
 }
@@ -636,7 +623,7 @@ fieldset[aria-hidden="true"] {
   }
 }
 /* ENDRIS IDEA OF THE DESIGN STARTS HERE */
-/*#homepage {
+#homepage {
   background-image:url(../images/homepage1.jpg);
   background-position: center;
   background-size: cover;
@@ -660,17 +647,16 @@ fieldset[aria-hidden="true"] {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}*/
-
+}
 #homepage a{
   color: white;
 }
 
-#home {
+#hero {
 background-image: url(../images/hero.jpg);
-height: 75vh;
-width: 100%;
-background-position: top 45% right 0;
+height: 77vh;
+max-width: 100%;
+background-position: top 70% right 0;
 background-size: cover;
 padding: 0 100px;
 display: flex;
@@ -697,7 +683,7 @@ justify-content: center;
     text-align: center;
 }
 
-#main .product-container {
+#product-section .product-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -770,6 +756,6 @@ footer .menu a{
   padding-left: 20px;
   padding-right: 20px;
 }
-footer .copyright h5 {
+footer .copyright h5{
   color: #DDEAD7;
 }

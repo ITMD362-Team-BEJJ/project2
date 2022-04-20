@@ -26,6 +26,7 @@ if(html.id === 'payment') {
   formPayment.addEventListener('input', debounce(handleFormInputActivity, 850));
   formPayment.addEventListener('change', handleFormInputActivity);
   formPayment.addEventListener('submit', handleFormSubmission);
+  updateCart(cartItems);
 }
 
 // Logic for billing form
@@ -66,25 +67,41 @@ if(html.id === 'shipping') {
 
 /* Callback Functions */
 
-function handleCartAddition(event) {
+//function handleCartAddition(event) {
   // Name, Price, Quantity
-  var button = event.target;
-  var item = button.parentElement;
-  var name = button.getElementsByClassName('plant-name')[0].innerText;
-  var price = button.getElementsByClassName('plant-price')[0].innerText;
-  var quantity = button.getElementByClassName('plant-quantity')[0].innerText;
-  console.log(name, price);
+  //var targetElem = event.target;
+  //var item = targetElem.parentElement;
+  //var name = item.getElementsByClassName('plant-name')[0].innerText;
+  //var price = item.getElementsByClassName('plant-price')[0].innerText;
+  //var quantity = item.getElementByClassName('plant-quantity')[0].innerText;
+  //console.log(name, price);
   //generateCartFromLocalStorage();
 
   //var targetElement = event.target;
-  event.preventDefault(); // STOP the default browser behavior
+  //event.preventDefault(); // STOP the default browser behavior
   // STORE all the form data
-  writeFormDataToLocalStorage(button.name);
-  writeFormDataToLocalStorage(button.price);
-  writeFormDataToLocalStorage(button.quantity);
+
+  //writeFormDataToLocalStorage("store-page",'plant-name');
+  //writeFormDataToLocalStorage("store-page",price);
+  //writeFormDataToLocalStorage("store-page",1);
+  //var jsObject = readJsonFromLocalStorage("store-page");
+  //console.log(jsObject);
   //window.location.href = button.action; // PROCEED to the URL referenced by the form action
-
-
+//}
+function handleCartAddition(event) {
+  // Name, Price, Quantity
+  var targetElem = event.target;
+  var item = targetElem.parentElement;
+  event.preventDefault(); // STOP the default browser behavior
+  var name = item.getElementsByClassName('plant-name')[0].innerText;
+  var price = item.getElementsByClassName('plant-price')[0].innerText.replace(/\$|,/g, '');
+  console.log(name, price);
+  var jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
+  var jscart = [];
+  jscart.push(jsObj);
+  localStorage.setItem("jscart", JSON.stringify(jscart));
+  var cartFinal = JSON.parse(localStorage.getItem("jscart"))
+  console.log(cartFinal);
 }
 
 function handleFormInputActivity(event) {
@@ -274,7 +291,9 @@ function restoreFormDataFromLocalStorage(formName) {
   if (formValues.length === 0) {
     return; // nothing to restore
   }
+
   formElements = document.forms[formName].elements;
+
   for (i = 0; i < formValues.length; i++) {
     console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
     formElements[formValues[i][0]].value = formValues[i][1];
@@ -282,21 +301,27 @@ function restoreFormDataFromLocalStorage(formName) {
 }
 
 
-function updateCart() {
-  //var cartItemContainer = document.getElementsByClassName(items)[0]
-  var cartItemContainer = document.getElementById('cartItems')
-  var cartRows = document.getElementById('cartRow')
+function updateCart(formName) {
+  console.log("updateCart");
+  var jsObject = readJsonFromLocalStorage("jscart");
+  var cartItemContainer = document.getElementById('cartItems');
+  var cartLength = Object.keys(jsObject).length;
+  console.log(cartItemContainer);
+  console.log(jsObject);
+  console.log(cartLength);
   var total = 0;
-  for (var i = 0; i < cartRows.length; i++){
-    var cartRow = cartRows[i]
-    var name = cartRow.getElementsByClassName('name')
-    var priceElem = cartRow.getElementsByClassName('price')[0]
-    var quantityElem = cartRow.getElementsByClassName('quantity')[0]
-    var price = parseFloat(priceElem.innerText.replace('$', ''))
-    var quantity = quantityElem.value
-    total += priceElem * quantity
+  for (var i = 0; i < cartLength; i++) {
+    //var cartRow = cartRows[i];
+    document.getElementById("plant-name").innerHTML = jsObject[i].name;
+    document.getElementById("plant-price").innerHTML = "$" + jsObject[i].price;
+    document.getElementById("plant-quantity").innerHTML = "(" + jsObject[i].quantity + ")";
+    //var priceElem = jsObject.price;
+    //var quantityElem = jsObject.quantity;
+    //var price = parseFloat(priceElem.innerText.replace('$', ''));
+    //var quantity = quantityElem.value;
+    total += jsObject[i].price * jsObject[i].quantity;
   }
-  document.getElementsByClassName('cart-total')[0].innerText = '$' + total
+  document.getElementById("cart-total").innerHTML = "$" + total
 }
 
 
