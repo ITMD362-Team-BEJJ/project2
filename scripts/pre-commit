@@ -1,0 +1,21 @@
+#! /usr/bin/env sh
+
+STASH_NAME="pre-commit-$(date +%s)"
+
+git stash push -q --keep-index --include-untracked --message $STASH_NAME
+
+FAILED_TESTS=0
+trap 'FAILED_TESTS=$((FAILED_TESTS+1))' ERR
+# List all test commands to be run
+
+STASHES=$(git stash list -1 | grep -o $STASH_NAME)
+if [[ $STASHES == $STASH_NAME ]]; then
+  git reset --hard -q && git stash apply --index -q && git stash drop -q
+fi
+
+if ((FAILED_TESTS == 0)); then
+  exit 0 # Proceed with the commit
+else
+  echo "Unable to make commit; fix code and stage fixes with \`git add\`"
+  exit 1 # Halt the commit
+fi
