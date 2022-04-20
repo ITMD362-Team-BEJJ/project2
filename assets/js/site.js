@@ -108,8 +108,8 @@ function handleCartAddition(event) {
   jscart.push(jsObj);
   //appendToStorage("jscart", JSON.stringify(jscart));
   localStorage.setItem("jscart", JSON.stringify(jscart));
-  var cartFinal = JSON.parse(localStorage.getItem("jscart"))
-  console.log(cartFinal);
+  //var cartFinal = JSON.parse(localStorage.getItem("jscart"))
+  //console.log(cartFinal);
 }
 
 function handleFormInputActivity(event) {
