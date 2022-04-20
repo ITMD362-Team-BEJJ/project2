@@ -113,11 +113,8 @@ footer {
   background-color: #76A35E;
   display: flex;
   justify-content: space-between;
-  padding: 10px 80px;
-}
-
-footer {
-  padding-top: 30px;
+  padding: 0.625em 5em; /* 10px / 16px = 0.625em, 80px / 16px = 5em */
+  padding-top: 1.875em; /* 30px / 16px = 1.875em */
 }
 
 footer menu {
@@ -125,8 +122,8 @@ footer menu {
 }
 footer .menu a {
   color: #DDEAD7;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 1.25em; /* 20px / 16px = 1.25em */
+  padding-right: 1.25em; /* 20px / 16px = 1.25em */
 }
 footer .copyright h5 {
   color: #DDEAD7;
@@ -180,15 +177,15 @@ footer .copyright h5 {
   font-family: Rubik, sans-serif;
   display: block;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 4px;
+  bottom: 0.625em; /* 10px / 16px = 0.625em */
+  right: 0.625em; /* 10px / 16px = 0.625em */
+  padding: 0.25em; /* 4px / 16px = 0.25em */
   color: initial;
   background-color: #A882A1;
 }
 
 .top-button:hover {
-  background-color: #97668E
+  background-color: #97668E;
 }
 
 #home {
@@ -209,8 +206,8 @@ footer .copyright h5 {
 }
 
 #home-section h1 {
-    color: #76A35E;
-    font-weight: 700;
+  color: #76A35E;
+  font-weight: 700;
 }
 
 #home-section a {
@@ -218,19 +215,13 @@ footer .copyright h5 {
   background-color: transparent;
   color: green;
   border: 0;
-  padding: 14px 80px 14px 65px;
+  padding: 0.875em 5em 0.875em 4.0625em; /* 14px, 80px, 65px / 16px = 0.875em, 5em, 4.0625em  */
   background-repeat: no-repeat;
   font-weight: 700;
 }
 
-#home-section h1 {
-  color: #76A35E;
-  font-weight: 700;
-}
-
-
 #shop {
-    text-align: center;
+  text-align: center;
 }
 
 #shop-name {
@@ -239,34 +230,34 @@ footer .copyright h5 {
 
 #shop .products {
   width: 20%;
-  min-width: 250px;
-  padding: 10px 12px;
-  border: 1px;
-  border-radius: 25px;
-  box-shadow: 15px 15px 20px rgba(179, 169, 91, 0.1);
-  margin: 15px 0px;
+  min-width: 15.625em; /* 250px / 16px = 15.625em */
+  padding: 0.625em 0.75em; /* 10 / 16px = 0.625em, 12px / 16px = 0.75em */
+  border: 0.0625em; /* 1px / 16px = 0.0625em */
+  border-radius: 1.5625em; /* 25px / 16px = 1.5625em */
+  box-shadow: 0.9375em 0.9375em 1.25em rgba(179, 169, 91, 0.1); /* 15px / 16px = 0.9375em, 20px / 16px = 1.25em */
+  margin: 0.9375em; /* 15px / 16px = 0.9375em */
   transition: 0.2s ease;
   position: relative;
 }
 
 #shop .products:hover {
-  box-shadow: 20px 20px 30px rgba(163, 127, 27, 0.2);
+  box-shadow: 1.25em 1.25em 1.875em rgba(163, 127, 27, 0.2); /* 20px, 30px / 16px = 1.25em, 1.875em */
 }
 #shop img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 1.25em; /* 20px / 16px = 1.25em */
 }
 
 #shop .product-desc {
   text-align: start;
-  padding: 10px 2;
+  padding: 0.625em 2; /* 10px / 16px = 0.625em */
 }
-#shop h5{
-  padding-top: 7px;
-  font-size: 17px;
+#shop h5 {
+  padding-top: 0.4375em; /* 7px / 16px = 0.4375em */
+  font-size: 1.0625em; /* 17px / 16px = 1.0625em */
 }
-#shop h4{
-  padding-top: 7px;
+#shop h4 {
+  padding-top: 0.4375em; /* 7px / 16px = 0.4375em */
   color: #76A35E;
 }
 
@@ -283,11 +274,11 @@ footer .copyright h5 {
     column-gap: 5em;
   }
 
-  .product-container{
-    display: flex !important;
+  .product-container {
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 50px;
+    padding: 3.125em; /* 50px / 16px = 3.125 em */
   }
 
   .price {
