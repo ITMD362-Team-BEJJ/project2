@@ -26,6 +26,9 @@ if(html.id === 'payment') {
   formPayment.addEventListener('input', debounce(handleFormInputActivity, 850));
   formPayment.addEventListener('change', handleFormInputActivity);
   formPayment.addEventListener('submit', handleFormSubmission);
+}
+// Logic for cart
+if(html.id === 'cart') {
   updateCart(cartItems);
 }
 
