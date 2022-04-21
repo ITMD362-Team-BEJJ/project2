@@ -1,0 +1,18 @@
+#! /usr/bin/env sh
+# Hold onto the root of the repository
+REPO_ROOT=$(git rev-parse --show-toplevel)
+PRE_COMMIT_HOOK=$REPO_ROOT/.git/hooks/pre-commit
+
+# Check to see if the pre-commit symlink exists. If so, unlink it. This will
+# help with any future changes to the pre-commit script's location.
+if [ -L "$PRE_COMMIT_HOOK" ]; then
+  unlink $PRE_COMMIT_HOOK
+fi
+
+# Link the pre-commit hook relative to the `.git/hooks` directory
+# This assumes that you're storing your hooks at $REPO_ROOT/scripts.
+# Adjust the path as necessary.
+ln -s ../../scripts/pre-commit $PRE_COMMIT_HOOK
+
+# Install all dependencies, including development dependencies
+npm install --save-dev

@@ -6,6 +6,7 @@ var formBilling;
 var formShipping;
 var newAddressFieldset;
 var newAddressCheckbox;
+var addToCartButton;
 
 // Add a `js` class for any JavaScript-dependent CSS
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
@@ -13,8 +14,8 @@ html.classList.add('js');
 
 // Logic for Store
 if(html.id === 'store') {
-  var addToCartButton = document.querySelectorAll('button[name="addCart"]');
-  addToCartButton.forEach(function(button)  {
+  addToCartButton = document.querySelectorAll('button[name="addCart"]');
+  addToCartButton.forEach(function(button) {
     button.addEventListener('click', handleCartAddition);
   });
 }
