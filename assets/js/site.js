@@ -6,7 +6,6 @@ var formBilling;
 var formShipping;
 var newAddressFieldset;
 var newAddressCheckbox;
-var addToCartButton;
 
 // Add a `js` class for any JavaScript-dependent CSS
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
@@ -14,23 +13,30 @@ html.classList.add('js');
 
 // Logic for Store
 if(html.id === 'store') {
-  addToCartButton = document.querySelectorAll('button[name="addCart"]');
-  addToCartButton.forEach(function(button) {
+  //localStorage.clear();
+  var addToCartButton = document.querySelectorAll('button[name="addCart"]');
+  addToCartButton.forEach(function(button)  {
     button.addEventListener('click', handleCartAddition);
   });
 }
 
 // Logic for payment form
 if(html.id === 'payment') {
+  updateCart();
   formPayment = document.querySelector('form[name="payment"]');
   restoreFormDataFromLocalStorage(formPayment.name);
   formPayment.addEventListener('input', debounce(handleFormInputActivity, 850));
   formPayment.addEventListener('change', handleFormInputActivity);
   formPayment.addEventListener('submit', handleFormSubmission);
 }
+// Logic for cart
+if(html.id === 'cart') {
+  updateCart();
+}
 
 // Logic for billing form
 if(html.id === 'billing') {
+  updateCart();
   formBilling = document.querySelector('form[name="billing"]');
   restoreFormDataFromLocalStorage(formBilling.name);
   formBilling.addEventListener('input', debounce(handleFormInputActivity, 850));
@@ -40,6 +46,7 @@ if(html.id === 'billing') {
 
 // Logic for shipping form
 if(html.id === 'shipping') {
+  updateCart();
   formShipping = document.querySelector('form[name="shipping"]');
   restoreFormDataFromLocalStorage(formShipping.name);
   formShipping.addEventListener('input', debounce(handleFormInputActivity, 850));
@@ -68,11 +75,22 @@ if(html.id === 'shipping') {
 /* Callback Functions */
 
 function handleCartAddition(event) {
-  var button = event.target;
-  var item = button.parentElement;
+  // Name, Price, Quantity
+  var targetElem = event.target;
+  var item = targetElem.parentElement;
+  event.preventDefault(); // STOP the default browser behavior
   var name = item.getElementsByClassName('plant-name')[0].innerText;
-  var price = item.getElementsByClassName('plant-price')[0].innerText;
+  var price = item.getElementsByClassName('plant-price')[0].innerText.replace(/\$|,/g, '');
   console.log(name, price);
+
+  var jsItems = JSON.parse(localStorage.getItem('jscart')) || [];
+  var jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
+
+  jsItems.push(jsObj);
+  localStorage.setItem("jscart", JSON.stringify(jsItems));
+
+  var cartFinal = JSON.parse(localStorage.getItem("jscart"))
+  console.log(cartFinal);
 }
 
 function handleFormInputActivity(event) {
@@ -249,6 +267,16 @@ function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
 }
 
+function appendToStorage(name, data){
+    var old = localStorage.getItem(name);
+    if(old === null) {
+      old = "";
+    }
+    else {
+    localStorage.setItem(name, old + data);
+    }
+}
+
 // function destroyFormDataInLocalStorage(formName) {
 //   localStorage.removeItem(formName);
 // }
@@ -262,11 +290,51 @@ function restoreFormDataFromLocalStorage(formName) {
   if (formValues.length === 0) {
     return; // nothing to restore
   }
+
   formElements = document.forms[formName].elements;
+
   for (i = 0; i < formValues.length; i++) {
     console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
     formElements[formValues[i][0]].value = formValues[i][1];
   }
+}
+
+
+function updateCart(formName) {
+  console.log("updateCart");
+  var jsObject = readJsonFromLocalStorage("jscart");
+  var cartItemContainer = document.getElementById('cartItems');
+  var cartLength = Object.keys(jsObject).length;
+  console.log(cartItemContainer);
+  console.log(jsObject);
+  console.log(cartLength);
+  var total = 0;
+  for (var i = 0; i < cartLength; i++) {
+
+    var name = document.createElement('p');
+    name.setAttribute('id', 'plant-name');
+    var nameText = document.createTextNode(jsObject[i].name);
+    name.appendChild(nameText);
+
+    var price = document.createElement('p');
+    price.setAttribute('id', 'plant-price');
+    var priceText = document.createTextNode("$" + jsObject[i].price);
+    price.appendChild(priceText);
+
+    var quantity = document.createElement('p');
+    quantity.setAttribute('id', 'plant-quantity');
+    var quantityText = document.createTextNode("(" + jsObject[i].quantity + ")");
+    quantity.appendChild(quantityText);
+
+    var element = document.getElementById("cartRow");
+
+    element.appendChild(name);
+    element.appendChild(price);
+    element.appendChild(quantity);
+
+    total += jsObject[i].price * jsObject[i].quantity;
+  }
+  document.getElementById("cart-total").innerHTML = "$" + total
 }
 
 /* Utility Functions */
@@ -316,3 +384,4 @@ function debounce(callback, delay) {
 //     }
 //   };
 // }
+

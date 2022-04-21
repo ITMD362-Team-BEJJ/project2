@@ -22,17 +22,15 @@
     <a href="../cart/" class="custom-button" id="custom-button">Back to Cart</a>
 
     <aside id="summary">
-      <section id="items">
-        <h2 class="line">Cart</h2>
-        <ul>
-          <li>Albuca spiralis <p class="price">- $10.49</p></li>
-          <li>Echeveria "Perle von Nurnberg" <p class="price">- $4.99</p></li>
-          <li>Kalanchoe tomentosa "Panda Plant" <p class="price">- $4.99</p></li>
-          <li>Adromischus cristatus "Crinkle-Leaf Plant" <p class="price">- $4.99</p></li>
-          <li>Cereus forbesii monstrose "Ming Thing" <p class="price">- $9.49</p></li>
-          <li>Senecio rowleyanus "String of Pearls" <p class="price">- $4.99</p></li>
-        </ul>
-      </section>
+      <form name="cartItems">
+        <section id="items">
+          <h2 class="line">Cart</h2>
+          <ul id="cartItems">
+            <li id="cartRow" class="cartRow"></li>
+            <li>Total: <p id="cart-total">$0.00</p></li>
+          </ul>
+        </section>
+      </form>
     </aside>
 
     <form name="payment" id="form" action="../billing/" method="get" aria-labelledby="form-label" aria-live="polite" aria-relevant="additions">
