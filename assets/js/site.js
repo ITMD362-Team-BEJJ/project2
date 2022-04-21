@@ -6,6 +6,7 @@ var formBilling;
 var formShipping;
 var newAddressFieldset;
 var newAddressCheckbox;
+var addToCartButton;
 
 // Add a `js` class for any JavaScript-dependent CSS
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
@@ -13,9 +14,8 @@ html.classList.add('js');
 
 // Logic for Store
 if(html.id === 'store') {
-  //localStorage.clear();
-  var addToCartButton = document.querySelectorAll('button[name="addCart"]');
-  addToCartButton.forEach(function(button)  {
+  addToCartButton = document.querySelectorAll('button[name="addCart"]');
+  addToCartButton.forEach(function(button) {
     button.addEventListener('click', handleCartAddition);
   });
 }
@@ -74,22 +74,29 @@ if(html.id === 'shipping') {
 
 /* Callback Functions */
 
-function handleCartAddition(event) {
-  // Name, Price, Quantity
-  var targetElem = event.target;
-  var item = targetElem.parentElement;
+function handleCartAddition(event) { // Name, price, quantity
+  var targetElem;
+  var item;
+  var name;
+  var price;
+  var jsItems;
+  var jsObj;
+  var cartFinal;
+
+  targetElem = event.target;
+  item = targetElem.parentElement;
   event.preventDefault(); // STOP the default browser behavior
-  var name = item.getElementsByClassName('plant-name')[0].innerText;
-  var price = item.getElementsByClassName('plant-price')[0].innerText.replace(/\$|,/g, '');
+  name = item.getElementsByClassName('plant-name')[0].innerText;
+  price = item.getElementsByClassName('plant-price')[0].innerText.replace(/\$|,/g, '');
   console.log(name, price);
 
-  var jsItems = JSON.parse(localStorage.getItem('jscart')) || [];
-  var jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
+  jsItems = JSON.parse(localStorage.getItem('jscart')) || [];
+  jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
 
   jsItems.push(jsObj);
   localStorage.setItem("jscart", JSON.stringify(jsItems));
 
-  var cartFinal = JSON.parse(localStorage.getItem("jscart"))
+  cartFinal = JSON.parse(localStorage.getItem("jscart"));
   console.log(cartFinal);
 }
 
@@ -267,20 +274,6 @@ function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
 }
 
-function appendToStorage(name, data){
-    var old = localStorage.getItem(name);
-    if(old === null) {
-      old = "";
-    }
-    else {
-    localStorage.setItem(name, old + data);
-    }
-}
-
-// function destroyFormDataInLocalStorage(formName) {
-//   localStorage.removeItem(formName);
-// }
-
 function restoreFormDataFromLocalStorage(formName) {
   var jsObject = readJsonFromLocalStorage(formName);
   var formValues = Object.entries(jsObject);
@@ -301,32 +294,44 @@ function restoreFormDataFromLocalStorage(formName) {
 
 
 function updateCart(formName) {
-  console.log("updateCart");
   var jsObject = readJsonFromLocalStorage("jscart");
-  var cartItemContainer = document.getElementById('cartItems');
+  var cartItemContainer = document.getElementById('cart-items');
   var cartLength = Object.keys(jsObject).length;
+
+  var name;
+  var nameText;
+  var price;
+  var priceText;
+  var quantity;
+  var quantityText;
+  var element = document.getElementById("cart-row");
+
+  var total = 0;
+  var i;
+
+  console.log("updateCart");
+  console.log(formName);
+
   console.log(cartItemContainer);
   console.log(jsObject);
   console.log(cartLength);
-  var total = 0;
-  for (var i = 0; i < cartLength; i++) {
 
-    var name = document.createElement('p');
+  for (i = 0; i < cartLength; i++) {
+
+    name = document.createElement('p');
     name.setAttribute('id', 'plant-name');
-    var nameText = document.createTextNode(jsObject[i].name);
+    nameText = document.createTextNode(jsObject[i].name);
     name.appendChild(nameText);
 
-    var price = document.createElement('p');
+    price = document.createElement('p');
     price.setAttribute('id', 'plant-price');
-    var priceText = document.createTextNode("$" + jsObject[i].price);
+    priceText = document.createTextNode("$" + jsObject[i].price);
     price.appendChild(priceText);
 
-    var quantity = document.createElement('p');
+    quantity = document.createElement('p');
     quantity.setAttribute('id', 'plant-quantity');
-    var quantityText = document.createTextNode("(" + jsObject[i].quantity + ")");
+    quantityText = document.createTextNode("(" + jsObject[i].quantity + ")");
     quantity.appendChild(quantityText);
-
-    var element = document.getElementById("cartRow");
 
     element.appendChild(name);
     element.appendChild(price);
@@ -334,7 +339,7 @@ function updateCart(formName) {
 
     total += jsObject[i].price * jsObject[i].quantity;
   }
-  document.getElementById("cart-total").innerHTML = "$" + total
+  document.getElementById("cart-total").innerHTML = "$" + total;
 }
 
 /* Utility Functions */
@@ -363,25 +368,3 @@ function debounce(callback, delay) {
     }, delay);
   };
 }
-
-// throttle to slow execution to a certain amount of elapsed time (limit)
-// function throttle(callback, limit) {
-//   var throttling; // function-scope boolean for testing throttle state
-//   return function() {
-//     var context = this; // track function-calling context
-//     // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
-//     var args = arguments; // hold onto arguments object
-//     // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
-//
-//     // Run the function if not currently throttling
-//     if (!throttling) {
-//       // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
-//       callback.apply(context, args);
-//       throttling = true;
-//       setTimeout(function() {
-//         throttling = false;
-//       }, limit);
-//     }
-//   };
-// }
-
