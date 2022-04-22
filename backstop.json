@@ -39,6 +39,18 @@
       "misMatchThreshold": 0.1
     },
     {
+      "label": "Store Page",
+      "url": "http://localhost:8080/store/",
+      "misMatchThreshold": 0.1
+    },
+    {
+      "label": "Store Page Hover",
+      "url": "http://localhost:8080/store/",
+      "hoverSelector": "#cart-and-payment-nav",
+      "selectors": "#products",
+      "misMatchThreshold": 0.1
+    },
+    {
       "label": "Payment Form with Correct Values",
       "url": "http://localhost:8080/payment/",
       "selectors": [
