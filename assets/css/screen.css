@@ -250,7 +250,7 @@ footer .copyright h5 {
 
 #shop .product-desc {
   text-align: start;
-  padding: 0.625em 2; /* 10px / 16px = 0.625em */
+  padding: 0.625em; /* 10px / 16px = 0.625em */
 }
 #shop h5 {
   padding-top: 0.4375em; /* 7px / 16px = 0.4375em */
