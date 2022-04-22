@@ -74,27 +74,6 @@ if(html.id === 'shipping') {
 
 /* Callback Functions */
 
-//function handleCartAddition(event) {
-  // Name, Price, Quantity
-  //var targetElem = event.target;
-  //var item = targetElem.parentElement;
-  //var name = item.getElementsByClassName('plant-name')[0].innerText;
-  //var price = item.getElementsByClassName('plant-price')[0].innerText;
-  //var quantity = item.getElementByClassName('plant-quantity')[0].innerText;
-  //console.log(name, price);
-  //generateCartFromLocalStorage();
-
-  //var targetElement = event.target;
-  //event.preventDefault(); // STOP the default browser behavior
-  // STORE all the form data
-
-  //writeFormDataToLocalStorage("store-page",'plant-name');
-  //writeFormDataToLocalStorage("store-page",price);
-  //writeFormDataToLocalStorage("store-page",1);
-  //var jsObject = readJsonFromLocalStorage("store-page");
-  //console.log(jsObject);
-  //window.location.href = button.action; // PROCEED to the URL referenced by the form action
-//}
 function handleCartAddition(event) {
   // Name, Price, Quantity
   var targetElem = event.target;
@@ -103,13 +82,15 @@ function handleCartAddition(event) {
   var name = item.getElementsByClassName('plant-name')[0].innerText;
   var price = item.getElementsByClassName('plant-price')[0].innerText.replace(/\$|,/g, '');
   console.log(name, price);
+
+  var jsItems = JSON.parse(localStorage.getItem('jscart')) || [];
   var jsObj = {'name': name, 'price' : price, 'quantity' : "1"};
-  var jscart = [];
-  jscart.push(jsObj);
-  //appendToStorage("jscart", JSON.stringify(jscart));
-  localStorage.setItem("jscart", JSON.stringify(jscart));
-  //var cartFinal = JSON.parse(localStorage.getItem("jscart"))
-  //console.log(cartFinal);
+
+  jsItems.push(jsObj);
+  localStorage.setItem("jscart", JSON.stringify(jsItems));
+
+  var cartFinal = JSON.parse(localStorage.getItem("jscart"))
+  console.log(cartFinal);
 }
 
 function handleFormInputActivity(event) {
@@ -329,21 +310,34 @@ function updateCart(formName) {
   console.log(cartLength);
   var total = 0;
   for (var i = 0; i < cartLength; i++) {
-    //var cartRow = cartRows[i];
-    document.getElementById("plant-name").innerHTML = jsObject[i].name;
-    document.getElementById("plant-price").innerHTML = "$" + jsObject[i].price;
-    document.getElementById("plant-quantity").innerHTML = "(" + jsObject[i].quantity + ")";
-    //var priceElem = jsObject.price;
-    //var quantityElem = jsObject.quantity;
-    //var price = parseFloat(priceElem.innerText.replace('$', ''));
-    //var quantity = quantityElem.value;
+
+    var name = document.createElement('p');
+    name.setAttribute('id', 'plant-name');
+    var nameText = document.createTextNode(jsObject[i].name);
+    name.appendChild(nameText);
+
+    var price = document.createElement('p');
+    price.setAttribute('id', 'plant-price');
+    var priceText = document.createTextNode("$" + jsObject[i].price);
+    price.appendChild(priceText);
+
+    var quantity = document.createElement('p');
+    quantity.setAttribute('id', 'plant-quantity');
+    var quantityText = document.createTextNode("(" + jsObject[i].quantity + ")");
+    quantity.appendChild(quantityText);
+
+    var element = document.getElementById("cartRow");
+
+    element.appendChild(name);
+    element.appendChild(price);
+    element.appendChild(quantity);
+
     total += jsObject[i].price * jsObject[i].quantity;
     // tax:
     total += (total * 0.0625);
   }
   document.getElementById("cart-total").innerHTML = "$" + total
 }
-
 
 /* Utility Functions */
 
@@ -392,3 +386,4 @@ function debounce(callback, delay) {
 //     }
 //   };
 // }
+
