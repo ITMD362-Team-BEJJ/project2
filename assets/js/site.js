@@ -338,6 +338,8 @@ function updateCart(formName) {
     element.appendChild(quantity);
 
     total += jsObject[i].price * jsObject[i].quantity;
+    // tax:
+    total += (total * 0.0625);
   }
   document.getElementById("cart-total").innerHTML = "$" + total;
 }
